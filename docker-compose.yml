@@ -1,0 +1,6 @@
+services:
+  next:
+    container_name: next
+    image: ghcr.io/pharick/next-app:latest
+    ports:
+      - 80:80
