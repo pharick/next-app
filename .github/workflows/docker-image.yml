@@ -47,7 +47,8 @@ jobs:
                   image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
                   ports:
                     - 80:80
-              \" > docker-compose.yml
+              \" > docker-compose.yml && \
+              echo ${{ secrets.PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin && \
               docker compose pull && \
               docker compose up -d && \
               exit \
